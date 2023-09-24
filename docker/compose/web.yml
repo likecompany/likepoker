@@ -1,0 +1,25 @@
+version: "3.9"
+
+name: "likepoker"
+
+services:
+  web:
+    image: nginx:latest
+    command: /bin/bash -c \
+      "envsubst < /etc/nginx/conf.d/auth.conf.template > /etc/nginx/conf.d/auth.conf && \
+      envsubst < /etc/nginx/conf.d/balance.conf.template > /etc/nginx/conf.d/balance.conf && \
+      envsubst < /etc/nginx/conf.d/collection.conf.template > /etc/nginx/conf.d/collection.conf && \
+      envsubst < /etc/nginx/conf.d/file.conf.template > /etc/nginx/conf.d/file.conf && \
+      envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && \
+      nginx -g 'daemon off;'"
+    env_file:
+      - ${PWD}/.env
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ${PWD}/nginx/api_json_errors.conf:/etc/nginx/conf.d/api_json_errors.conf
+      - ${PWD}/nginx/auth.conf.template:/etc/nginx/conf.d/auth.conf.template
+      - ${PWD}/nginx/balance.conf.template:/etc/nginx/conf.d/balance.conf.template
+      - ${PWD}/nginx/collection.conf.template:/etc/nginx/conf.d/collection.conf.template
+      - ${PWD}/nginx/file.conf.template:/etc/nginx/conf.d/file.conf.template
+      - ${PWD}/nginx/nginx.conf.template:/etc/nginx/nginx.conf.template

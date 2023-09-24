@@ -1,6 +1,9 @@
 [submodule "auth"]
 	path = auth
 	url = git@github.com:likecompany/auth.git
+[submodule "balance"]
+	path = balance
+	url = git@github.com:likecompany/balance.git
 [submodule "collection"]
 	path = collection
 	url = git@github.com:likecompany/collection.git

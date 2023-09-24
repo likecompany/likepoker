@@ -1,0 +1,38 @@
+upstream main {
+    server auth_backend:{AUTH_PORT};
+    server balance_backend:{BALANCE_PORT};
+    server collection_backend:{COLLECTION_PORT};
+    server file_backend:{FILE_PORT};
+}
+
+server {
+    listen ${PORT};
+    listen [::]:${PORT};
+
+    server_name main;
+
+    location / {
+        set ${DOLLAR}x_request_server_name $x_request_server_name;
+        rewrite_by_lua '
+            local upstreams = {
+                "http://auth_backend:{AUTH_PORT}",
+                "http://balance_backend:{BALANCE_PORT}",
+                "http://collection_backend:{COLLECTION_PORT}",
+                "http://file_backend:{FILE_PORT};"
+            }
+            for _, value in pairs(upstreams) do
+                if string.find(value, ngx.var.x_request_server_name) then
+                    ngx.var.upstream = value
+        ';
+
+        proxy_pass ${DOLLAR}upstream;
+    }
+
+    proxy_intercept_errors on;
+    include api_json_errors.conf;
+
+    include auth.conf;
+    include balance.conf;
+    include collection.conf;
+    include file.conf;
+}
