@@ -1,6 +1,6 @@
 version: "3.9"
 
-name: "poker"
+name: "like_poker"
 
 services:
   web:
@@ -21,3 +21,7 @@ services:
       - like_network
     volumes:
       - ${PWD}/nginx:/etc/nginx
+
+networks:
+  like_network:
+    name: "like_network"
