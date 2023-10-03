@@ -2,4 +2,4 @@
 
 ## Make
 
-Use python cli.py instead of Makefiles
+Use Python `cli.py` instead of Makefiles
