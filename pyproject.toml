@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "poker"
+version = "1.0a"
+description = "The big poker service."
+authors = ["likecompany"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
