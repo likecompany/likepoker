@@ -180,3 +180,8 @@ poetry.lock
 # nginx
 
 nginx/conf.d/default.conf
+
+# redis
+
+fsm_data
+redis_data

@@ -12,6 +12,7 @@ import click
 class Services(str, Enum):
     AUTH = "auth"
     BALANCE = "balance"
+    BOT = "bot"
     COLLECTION = "collection"
     FILE = "file"
     LIKE = "like"
