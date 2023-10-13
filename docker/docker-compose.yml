@@ -11,6 +11,7 @@ services:
     depends_on:
       - auth
       - balance
+      - bot
       - collection
       - file
       - like
