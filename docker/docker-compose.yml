@@ -13,6 +13,7 @@ services:
       - balance
       - collection
       - file
+      - like
     env_file:
       - ${PWD}/.env
     ports:

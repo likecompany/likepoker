@@ -4,7 +4,7 @@ import subprocess
 import sys
 from configparser import ConfigParser
 from enum import Enum
-from typing import Optional, List, Any
+from typing import Any, List, Optional
 
 import click
 
@@ -14,6 +14,7 @@ class Services(str, Enum):
     BALANCE = "balance"
     COLLECTION = "collection"
     FILE = "file"
+    LIKE = "like"
 
 
 class CLIConfigParser(ConfigParser):

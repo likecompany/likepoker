@@ -18,6 +18,10 @@ server {
         proxy_pass http://file:${FILE_PORT};
     }
 
+    location /like {
+        proxy_pass http://like:${LIKE_PORT};
+    }
+
     proxy_intercept_errors on;
 
     error_page 400 = @400;
