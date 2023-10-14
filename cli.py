@@ -13,8 +13,6 @@ class Services(str, Enum):
     AUTH = "auth"
     BALANCE = "balance"
     BOT = "bot"
-    COLLECTION = "collection"
-    FILE = "file"
     LIKE = "like"
 
 
@@ -132,7 +130,7 @@ class Config:
 @click.option(
     "--config-file",
     "config_file",
-    default=".config.ini",
+    default="config.ini",
     help="Config file",
 )
 @click.option(

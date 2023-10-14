@@ -12,8 +12,6 @@ services:
       - auth
       - balance
       - bot
-      - collection
-      - file
       - like
     env_file:
       - ${PWD}/.env

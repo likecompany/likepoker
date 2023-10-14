@@ -10,14 +10,6 @@ server {
         proxy_pass http://balance:${BALANCE_PORT};
     }
 
-    location /collection {
-        proxy_pass http://collection:${COLLECTION_PORT};
-    }
-
-    location /file {
-        proxy_pass http://file:${FILE_PORT};
-    }
-
     location /like {
         proxy_pass http://like:${LIKE_PORT};
     }
