@@ -23,7 +23,7 @@ services:
       - like_network
     volumes:
       - ${PWD}/nginx:/etc/nginx
-    restart: alwasy
+    restart: always
 
 networks:
   like_network:
